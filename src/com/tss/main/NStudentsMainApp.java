@@ -13,21 +13,21 @@
 //            return;
 //        }
 //
-//        Scanner takeInput = new Scanner(System.in);
+//        Scanner scanner = new Scanner(System.in);
 //
 //
 //        System.out.println("Enter Name: ");
-//        String name = takeInput.nextLine();
+//        String name = scanner.nextLine();
 //
 //        System.out.println("Enter Course Name: ");
-//        String courseName = takeInput.nextLine();
+//        String courseName = scanner.nextLine();
 //
 //        System.out.println("Enter Total Fees");
-//        int totalFees = takeInput.nextInt();
+//        int totalFees = scanner.nextInt();
 //
 //
 //        System.out.println("Enter Fees that you Paid:");
-//        int feesPaid = takeInput.nextInt();
+//        int feesPaid = scanner.nextInt();
 //
 //        student.setName(name);
 //        student.setCourseName(courseName);
@@ -40,7 +40,7 @@
 //    }
 //    public static Student getStudent(Student students[])
 //    {
-//        Scanner takeInput = new Scanner(System.in);
+//        Scanner scanner = new Scanner(System.in);
 //
 //        System.out.println("Enter student id");
 //
@@ -48,7 +48,7 @@
 //
 //        while(true)
 //        {
-//            id = takeInput.nextInt();
+//            id = scanner.nextInt();
 //
 //            if(id < 1 || id > Student.getNumberOfStudents())
 //                System.out.println("Please Enter valid id");
@@ -59,12 +59,12 @@
 //    }
 //    public static void payFees(Student students[])
 //    {
-//        Scanner takeInput = new Scanner(System.in);
+//        Scanner scanner = new Scanner(System.in);
 //
 //
 //        Student student = getStudent(students);
 //        System.out.println("Enter Fee amount");
-//        int fee = takeInput.nextInt();
+//        int fee = scanner.nextInt();
 //
 //
 //        student.payFees(fee);
@@ -102,7 +102,7 @@
 //
 //        Scanner inputTaker = new Scanner(System.in);
 //
-//        int numberOfStudent = 0;
+//        int countNumberOfStudent = 0;
 //
 //
 //
@@ -114,16 +114,16 @@
 //                inputTaker.next();
 //            }
 //
-//            numberOfStudent = inputTaker.nextInt();
+//            countNumberOfStudent = inputTaker.nextInt();
 //
-//            if(numberOfStudent <= 0)
+//            if(countNumberOfStudent <= 0)
 //            {
 //                System.out.println("Student must be greater than 0");
 //            }else
 //                break;
 //        }
-//        Student students[] = new Student[numberOfStudent];
-//        Student.setTotalStudents(numberOfStudent);
+//        Student students[] = new Student[countNumberOfStudent];
+//        Student.setTotalStudents(countNumberOfStudent);
 //        while (true) {
 //            System.out.println("1. Add new Student");
 //            System.out.println("2. Pay Fees");

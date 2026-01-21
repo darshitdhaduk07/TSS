@@ -12,25 +12,25 @@
 //    }
 //    public static void payFees(Student student)
 //    {
-//        Scanner takeInput = new Scanner(System.in);
+//        Scanner scanner = new Scanner(System.in);
 //
 //        System.out.println("Enter Fee amount");
-//        int fee = takeInput.nextInt();
+//        int fee = scanner.nextInt();
 //
 //        student.payFees(fee);
 //
 //    }
 //    public static void updateCourse(Student student)
 //    {
-//        Scanner takeInput = new Scanner(System.in);
+//        Scanner scanner = new Scanner(System.in);
 //        System.out.println("Enter Course Name:");
-//        String courseName = takeInput.nextLine();
+//        String courseName = scanner.nextLine();
 //
 //        System.out.println("Enter total Fees:");
-//        int totalFees = takeInput.nextInt();
+//        int totalFees = scanner.nextInt();
 //
 //        System.out.println("Enter fees Paid");
-//        int feesPaid = takeInput.nextInt();
+//        int feesPaid = scanner.nextInt();
 //
 //        student.setCourseName(courseName);
 //        student.setTotalFees(totalFees);
@@ -38,20 +38,20 @@
 //    }
 //
 //    public static void main(String[] args) {
-//        Scanner takeInput = new Scanner(System.in);
+//        Scanner scanner = new Scanner(System.in);
 //        Student student = new Student();
 //
 //        System.out.println("Enter Name: ");
-//        String name = takeInput.nextLine();
+//        String name = scanner.nextLine();
 //
 //        System.out.println("Enter Course Name: ");
-//        String courseName = takeInput.nextLine();
+//        String courseName = scanner.nextLine();
 //
 //        System.out.println("Enter Total Fees");
-//        int totalFees = takeInput.nextInt();
+//        int totalFees = scanner.nextInt();
 //
 //        System.out.println("Enter Fees that you Paid:");
-//        int feesPaid = takeInput.nextInt();
+//        int feesPaid = scanner.nextInt();
 //
 //        student.setName(name);
 //        student.setCourseName(courseName);
@@ -66,7 +66,7 @@
 //            System.out.println("4. Update Course");
 //            System.out.println("5. Exit");
 //
-//            int choice = takeInput.nextInt();
+//            int choice = scanner.nextInt();
 //
 //            switch (choice)
 //            {

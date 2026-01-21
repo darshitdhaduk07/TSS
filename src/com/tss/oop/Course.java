@@ -4,25 +4,36 @@ public class Course {
     private int id = 0;
     private String name = "";
     private double price = 0;
+    private double feesPaid = 0;
     private int duration = 0;
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
+
     public double getPrice() {
-        return price;
+        return this.price;
+    }
+
+    public double getFeesPaid() {
+        return this.feesPaid;
     }
 
     public int getDuration() {
-        return duration;
+        return this.duration;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void setFeesPaid(double fees)
+    {
+        this.feesPaid = fees;
     }
 
     public void setName(String name) {

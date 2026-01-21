@@ -13,30 +13,11 @@ public class Student {
     private double feesPaid = 0;
 
     public void setCourses(Course course) {
-        if (totalCourse >= 3) {
-            System.out.println("You take at most 3 Course can't take more");
-            return;
-        }
-
-        this.courses[totalCourse] = course;
-
-
-        this.totalCourse++;
+        this.courses[totalCourse++] = course;
     }
 
-    public void getCourse() {
-        System.out.println("------------------------------------------------------------");
-        System.out.printf("| %-10s | %-20s | %-10s | %-10s|\n",
-                "Course ID", "Course Name", "Fees", "Duration");
-        System.out.println("------------------------------------------------------------");
-        for (Course course : courses) {
-            if (course == null) return;
-            System.out.printf("| %-10d | %-20s | %-10.2f | %-10s |\n",
-                    course.getId(),
-                    course.getName(),
-                    course.getPrice(), course.getDuration());
-        }
-        System.out.println("------------------------------------------------------------");
+    public Course[]  getCourse() {
+        return this.courses;
     }
 
     public int getId() {
@@ -44,30 +25,18 @@ public class Student {
     }
 
     public int getTotalCourse() {
-        return totalCourse;
-    }
-    public void setTotalCourse(int totalCourse)
-    {
-        this.totalCourse += totalCourse;
+        return this.totalCourse;
     }
     public double getTotalFees() {
-        return totalFees;
+        return this.totalFees;
     }
 
     public double getFeesPaid() {
-        return feesPaid;
+        return this.feesPaid;
     }
 
     public void setTotalFees(double totalFees) {
-        double fees = 0;
-        for(Course course:courses)
-        {
-            if(course == null)
-                return;
-            else{
-                fees += course.getPrice();
-            }
-        }
+        this.totalFees += totalFees;
     }
 
     public void setFeesPaid(double feesPaid) {
@@ -75,7 +44,7 @@ public class Student {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setId(int id) {
