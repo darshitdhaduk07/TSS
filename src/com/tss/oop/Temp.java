@@ -7,7 +7,7 @@ public class Temp {
         System.out.println("Enter String:");
 
         Scanner sc = new Scanner(System.in);
-        StringBuilder sb = new StringBuilder()
+        StringBuilder sb = new StringBuilder();
 
     }
 }
