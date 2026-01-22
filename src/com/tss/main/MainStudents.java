@@ -17,53 +17,7 @@ public class MainStudents {
     public static Scanner scanner = new Scanner(System.in);
     public static int lowerBound = 1, upperBound = 11;
 
-    private static Student getStudentById() {
-        if (countNumberOfStudent == 0) {
-            System.out.println("\nPlease Create Students First");
-            return null;
-        }
-        System.out.print("\nEnter id of student: ");
-        int id = scanner.nextInt();
 
-
-        while (true) {
-            for (Student student : students) {
-
-                if (student != null && id == student.getId())
-                    return student;
-
-            }
-            System.out.print("Please Enter Valid Id: ");
-            id = scanner.nextInt();
-        }
-    }
-    public static String getCourseName()
-    {
-        System.out.print("Enter Courses name: ");
-        scanner.nextLine();
-        String courseName = scanner.nextLine();
-
-
-
-        while (true)
-        {
-            int flag = 0;
-            for(Course course:courses)
-            {
-                if(course == null)
-                    continue;
-                else if(course.getName().toLowerCase().trim().replace(" ","").equals(courseName.toLowerCase().trim().replace(" ","")))
-                {
-                    System.out.print("Please Enter Unique Course Name: ");
-                    courseName = scanner.nextLine();
-                    flag = 1;
-                }
-
-            }
-            if(flag == 0)
-                return courseName;
-        }
-    }
     public static void main(String[] args) {
 
         //validation of countNumberOfStudent
@@ -177,6 +131,54 @@ public class MainStudents {
 
             }
 
+        }
+    }
+
+    private static Student getStudentById() {
+        if (countNumberOfStudent == 0) {
+            System.out.println("\nPlease Create Students First");
+            return null;
+        }
+        System.out.print("\nEnter id of student: ");
+        int id = scanner.nextInt();
+
+
+        while (true) {
+            for (Student student : students) {
+
+                if (student != null && id == student.getId())
+                    return student;
+
+            }
+            System.out.print("Please Enter Valid Id: ");
+            id = scanner.nextInt();
+        }
+    }
+    public static String getCourseName()
+    {
+        System.out.print("Enter Courses name: ");
+        scanner.nextLine();
+        String courseName = scanner.nextLine();
+
+
+
+        while (true)
+        {
+            int flag = 0;
+            for(Course course:courses)
+            {
+                if(course == null)
+                    continue;
+                else if(course.getName().toLowerCase().trim().replace(" ","").equals(courseName.toLowerCase().trim().replace(" ","")))
+                {
+                    System.out.print("Please Enter Unique Course Name: ");
+                    courseName = scanner.nextLine();
+                    flag = 1;
+                }
+
+            }
+            if(flag == 0)
+                return courseName;
         }
     }
 
