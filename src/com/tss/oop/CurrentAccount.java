@@ -3,17 +3,10 @@ package com.tss.oop;
 public class CurrentAccount extends Account{
     public static double minimumBalance;
 
-    public CurrentAccount()
-    {
-
-    }
-    public CurrentAccount (String name,double balance,double minAmount)
+    public CurrentAccount (String name,double balance)
     {
         super(name,balance);
-        minimumBalance = minAmount;
-
     }
-
     public void deposit(double amount)
     {
         if(amount < 0)
@@ -26,16 +19,17 @@ public class CurrentAccount extends Account{
 
     }
 
-    public void withdraw(double amount)
+    public boolean withdraw(double amount)
     {
-        if(super.showBalance() < minimumBalance || super.showBalance()-minimumBalance < amount || amount < 0)
+        if(super.showBalance()-amount < minimumBalance)
         {
-            System.out.println("Please Enter valid amount");
-            return;
+            System.out.println("You can't withdraw you should contain"+minimumBalance+" in your account");
+            return false;
         }
         else
             super.withdraw(amount);
         System.out.println("Amount Withdraw Successfully");
+        return true;
     }
 
     public double showBalance()

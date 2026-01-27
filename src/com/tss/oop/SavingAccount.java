@@ -1,36 +1,33 @@
 package com.tss.oop;
 
 public class SavingAccount extends Account{
-
-    public SavingAccount()
+    public static int offerRate;
+    public SavingAccount(String name,double balance)
     {
-    }
-    public SavingAccount(String name,double balance,int rate)
-    {
-        super(name,balance,rate);
+        super(name,balance);
     }
     public void deposit(double amount)
     {
-        if(amount < 0)
-        {
-            System.out.println("Please Enter valid amount");
-            return;
-        }
         super.deposit(amount);
+        if(amount > 50000)
+        {
+            super.deposit(amount * (offerRate / 100f));
+        }
         System.out.println("Amount Deposit Successfully");
 
     }
 
-    public void withdraw(double amount)
+    public boolean withdraw(double amount)
     {
-        if(super.showBalance() < amount || amount < 0)
+        if(super.showBalance() < amount)
         {
-            System.out.println("Please Enter valid amount");
-            return;
+            System.out.println("Insufficient Balance");
+            return false;
         }
         else
             super.withdraw(amount);
         System.out.println("Amount Withdraw Successfully");
+        return true;
     }
 
     public double showBalance()

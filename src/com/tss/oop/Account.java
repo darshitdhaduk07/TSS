@@ -7,37 +7,23 @@ import java.util.Random;
 public class Account {
     private int id = 0;
     private static int incrementor = 0;
-    private double accountNumber;
+    private long accountNumber = 1000000000L;
     private String name;
     private double balance;
-    private long digits = 10000000000L;
-    private double offerRate;
 
-    public Account()
-    {
-
-    }
-    public Account(String name,double balance)
-    {
+    public Account(String name, double balance) {
         this.id = ++incrementor;
-        this.accountNumber =  (Math.random()* digits)+incrementor;
+        this.accountNumber += incrementor;
         this.name = name;
         this.balance = balance;
     }
-    public Account(String name,double balance,int rate)
-    {
-        this.id = ++incrementor;
-        this.accountNumber =  (Math.random()* digits)+incrementor;
-        this.name = name;
-        this.balance = balance;
-        this.offerRate = rate/100f;
-    }
+
 
     public int getId() {
         return id;
     }
 
-    public double getAccountNumber() {
+    public long getAccountNumber() {
         return accountNumber;
     }
 
@@ -49,23 +35,19 @@ public class Account {
         return balance;
     }
 
-    public void deposit(double amount)
-    {
-        this.balance += amount;
-        if(amount > 50000)
-        {
-            this.balance += (amount*offerRate);
-        }
+    public void setBalance(double amount) {
+        balance += amount;
+    }
+
+    public void deposit(double amount) {
+        setBalance(amount);
 
     }
 
-    public void withdraw(double amount)
-    {
-        this.balance -= amount;
+    public boolean withdraw(double amount) {
+        balance -= amount;
+        return true;
     }
-
-
-
 
 
 }
