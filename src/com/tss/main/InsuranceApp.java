@@ -4,6 +4,7 @@ import com.tss.oop.HealthInsurancePolicy;
 import com.tss.oop.InsurancePolicy;
 import com.tss.oop.LifeInsurancePolicy;
 import com.tss.oop.VehicleInsurancePolicy;
+
 import java.util.Scanner;
 
 public class InsuranceApp {
@@ -35,8 +36,13 @@ public class InsuranceApp {
                 case 1:
                     System.out.println("1. Life  2. Health  3. Vehicle");
                     int type = sc.nextInt();
-                    sc.nextLine();
 
+
+                    while (type <= 0 || type > 3) {
+                        System.out.println("Please enter a valid choice: ");
+                        type = sc.nextInt();
+                    }
+                    sc.nextLine();
                     System.out.print("Policy Number: ");
                     String pno = sc.nextLine();
 
@@ -48,61 +54,62 @@ public class InsuranceApp {
                     double sum = sc.nextDouble();
 
                     System.out.print("Duration (years): ");
-                    while (!sc.hasNextInt()) sc.next();
                     int dur = sc.nextInt();
+                    while (true) {
+                        if (dur < 0 || dur > 100) {
+                            System.out.println("Age must be between 0 and 100");
+                            dur = sc.nextInt();
+                        } else break;
+                    }
 
                     if (type == 1) {
                         System.out.print("Completed Years: ");
                         while (!sc.hasNextInt()) sc.next();
                         int completed = sc.nextInt();
                         policy = new LifeInsurancePolicy(pno, name, sum, dur, completed);
-                    }
-                    else if (type == 2) {
+                    } else if (type == 2) {
                         policy = new HealthInsurancePolicy(pno, name, sum, dur);
-                    }
-                    else if (type == 3) {
+                    } else
                         policy = new VehicleInsurancePolicy(pno, name, sum, dur);
-                    }
-                    else {
-                        System.out.println("Invalid policy type.");
-                    }
-                    break;
 
-                case 2:
-                    if (policy != null)
-                        System.out.println("Premium: " + policy.calculatePremium());
-                    else
-                        System.out.println("No policy created.");
-                    break;
-
-                case 3:
-                    if (policy == null) {
-                        System.out.println("No policy created.");
                         break;
+
+                        case 2:
+                            if (policy != null)
+                                System.out.println("Premium: " + policy.calculatePremium());
+                            else
+                                System.out.println("No policy created.");
+                            break;
+
+                        case 3:
+                            if (policy == null) {
+                                System.out.println("No policy created.");
+                                break;
+                            }
+
+                            System.out.print("Enter claim amount: ");
+                            while (!sc.hasNextDouble()) sc.next();
+                            double claim = sc.nextDouble();
+
+                            policy.applyClaim(claim);
+                            break;
+
+                        case 4:
+                            if (policy != null)
+                                policy.displayDetails();
+                            else
+                                System.out.println("No policy created.");
+                            break;
+
+                        case 5:
+                            System.out.println("Application closed.");
+                            sc.close();
+                            return;
+
+                        default:
+                            System.out.println("Invalid choice.");
                     }
-
-                    System.out.print("Enter claim amount: ");
-                    while (!sc.hasNextDouble()) sc.next();
-                    double claim = sc.nextDouble();
-
-                    policy.applyClaim(claim);
-                    break;
-
-                case 4:
-                    if (policy != null)
-                        policy.displayDetails();
-                    else
-                        System.out.println("No policy created.");
-                    break;
-
-                case 5:
-                    System.out.println("Application closed.");
-                    sc.close();
-                    return;
-
-                default:
-                    System.out.println("Invalid choice.");
             }
-        }
+
     }
 }
