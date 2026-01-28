@@ -10,7 +10,25 @@ public class HealthInsurancePolicy extends InsurancePolicy {
         return sumAssured * 0.07;
     }
 
-    public void applyClaim() {
-        System.out.println("Health insurance claim applied successfully.");
+    public void applyClaim(double claimAmount) {
+
+        if (claimAmount <= 0) {
+            System.out.println("Invalid claim amount.");
+            return;
+        }
+
+        if (remainingCoverage <= 0) {
+            System.out.println("No coverage remaining.");
+            return;
+        }
+
+        if (claimAmount > remainingCoverage) {
+            System.out.println("Claim exceeds remaining coverage.");
+            return;
+        }
+
+        remainingCoverage -= claimAmount;
+        System.out.println("Health claim approved: " + claimAmount);
+        System.out.println("Remaining coverage: " + remainingCoverage);
     }
 }
