@@ -31,11 +31,11 @@ public class Bike implements Vehicle {
     @Override
     public void start() {
         if(isStarted)
-            System.out.println("Bike already Started");
+            System.out.println("\nBike already Started\n");
         else
         {
             isStarted = true;
-            System.out.println("Bike Started");
+            System.out.println("\nBike Started\n");
         }
     }
 
@@ -44,17 +44,17 @@ public class Bike implements Vehicle {
         if(isStarted)
         {
             isStarted = false;
-            System.out.println("Bike Stop");
+            System.out.println("\nBike Stop\n");
         }
         else
-            System.out.println("Bike already Stopped");
+            System.out.println("\nBike already Stopped\n");
     }
 
     @Override
     public void horn()
     {
         if(isHorn)
-            System.out.println("Pip Pip....");
+            System.out.println("\nPip Pip....\n");
         else
             Vehicle.super.horn();
 
@@ -64,8 +64,11 @@ public class Bike implements Vehicle {
     public void playMusic()
     {
         if(isPlayMusic)
-            System.out.println("Music Played");
+            System.out.println("\nMusic Played\n");
         else
             Vehicle.super.playMusic();
+    }
+    public void inspection(){
+        System.out.println("\nBike inspection done\n");
     }
 }

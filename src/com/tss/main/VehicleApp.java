@@ -30,13 +30,14 @@ public class VehicleApp {
         }
     }
 
+
     public static void addVehicle() {
         if (numberOfVehicle > 10) {
             System.out.println("\nYou can't add vehicle");
             return;
         }
 
-        System.out.println("Select Vehicle");
+        System.out.println("----- Select Vehicle -----");
         System.out.println("1. Car");
         System.out.println("2. Bike");
         System.out.println("3. Truck");
@@ -66,20 +67,23 @@ public class VehicleApp {
                 break;
         }
 
-        System.out.println("If you want to add horn in your vehicle (true/false): ");
+        System.out.print("If you want to add horn in your vehicle (true/false): ");
         boolean isHorn = sc.nextBoolean();
 
-        System.out.println("If you want to add music Player in your vehicle(true/false): ");
+        System.out.print("If you want to add music Player in your vehicle(true/false): ");
         boolean isPlayMusic = sc.nextBoolean();
 
 
         switch (choice) {
             case 1:
-                vehicle[numberOfVehicle] = new Car(id, isHorn, isPlayMusic);
+                vehicle[numberOfVehicle++] = new Car(id, isHorn, isPlayMusic);
+                break;
             case 2:
-                vehicle[numberOfVehicle] = new Bike(id, isHorn, isPlayMusic);
+                vehicle[numberOfVehicle++] = new Bike(id, isHorn, isPlayMusic);
+                break;
             case 3:
-                vehicle[numberOfVehicle] = new Truck(id, isHorn, isPlayMusic);
+                vehicle[numberOfVehicle++] = new Truck(id, isHorn, isPlayMusic);
+                break;
             case 4:
                 System.out.println("1. For EV-Bike");
                 System.out.println("2. For EV-Car");
@@ -94,15 +98,15 @@ public class VehicleApp {
                     vehicle[numberOfVehicle] = new EVCar(id, isHorn, isPlayMusic);
         }
 
-        System.out.println("Your Vehicle id is: " + id);
-        System.out.println("\nCongratulations! Vehicle Added in your Collection");
+        System.out.println("\nYour Vehicle id is: " + id);
+        System.out.println("Congratulations! Vehicle Added in your Collection\n");
     }
 
     public static void startVehicle() {
         Vehicle vehicle1 = getVehicleById();
 
         if (vehicle1 == null) {
-            System.out.println("\n Please Add a vehicle first");
+            System.out.println("\nPlease Add a vehicle first\n");
             return;
         }
 
@@ -111,16 +115,67 @@ public class VehicleApp {
 
     }
 
-    
+    public static void stopVehicle()
+    {
+        Vehicle vehicle1 = getVehicleById();
+
+        if (vehicle1 == null) {
+            System.out.println("\nPlease Add a vehicle first\n");
+            return;
+        }
+
+
+        vehicle1.stop();
+    }
+    public static void playHorn(){
+        Vehicle vehicle1 = getVehicleById();
+
+        if (vehicle1 == null) {
+            System.out.println("\nPlease Add a vehicle first\n");
+            return;
+        }
+
+
+        vehicle1.horn();
+    }
+    public static void playMusic(){
+        Vehicle vehicle1 = getVehicleById();
+
+        if (vehicle1 == null) {
+            System.out.println("\nPlease Add a vehicle first\n");
+            return;
+        }
+        vehicle1.playMusic();
+    }
+    public static void vehicleinspection(){
+        Vehicle vehicle1 = getVehicleById();
+
+        if (vehicle1 == null) {
+            System.out.println("\nPlease Add a vehicle first\n");
+            return;
+        }
+        vehicle1.inspection();
+    }
+    public static void chargeBattery(){
+        Vehicle vehicle1 = getVehicleById();
+
+        if(vehicle1 == null){
+            System.out.println("\nPlease Add a vehicle first\n");
+            return;
+        }
+        vehicle1.chargeBattery();
+    }
     public static void main(String[] args) {
         while (true) {
+            System.out.println("----------- Vehicle -----------");
             System.out.println("1. Add a vehicle");
             System.out.println("2. Start a vehicle");
             System.out.println("3. Stop a Vehicle");
             System.out.println("4. Charge Battery");
             System.out.println("5. Play horn");
-            System.out.println("6. Perform vehicle inspection");
-            System.out.println("7. Exit");
+            System.out.println("6. Play Music");
+            System.out.println("7. Perform vehicle inspection");
+            System.out.println("8. Exit");
 
             System.out.print("Enter Your choice: ");
             int choice = sc.nextInt();
@@ -146,9 +201,12 @@ public class VehicleApp {
                     playHorn();
                     break;
                 case 6:
-                    vehicleinspection();
+                    playMusic();
                     break;
                 case 7:
+                    vehicleinspection();
+                    break;
+                case 8:
                     return;
                 default:
                     System.out.println("Please Enter Valid Choice");

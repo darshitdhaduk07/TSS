@@ -31,11 +31,11 @@ public class EVBike implements ElectricVehicle {
     @Override
     public void start() {
         if(isStarted)
-            System.out.println("Ev-Car already Started");
+            System.out.println("\nEv-Car already Started\n");
         else
         {
             isStarted = true;
-            System.out.println("Ev-Car Started");
+            System.out.println("\nEv-Car Started\n");
         }
     }
 
@@ -44,17 +44,17 @@ public class EVBike implements ElectricVehicle {
         if(isStarted)
         {
             isStarted = false;
-            System.out.println("Ev-Bike Stop");
+            System.out.println("\nEv-Bike Stop\n");
         }
         else
-            System.out.println("Ev-Car already Stopped");
+            System.out.println("\nEv-Car already Stopped\n");
     }
 
     @Override
     public void horn()
     {
         if(isHorn)
-            System.out.println("Pip Pip....");
+            System.out.println("\nPip Pip....\n");
         else
             ElectricVehicle.super.horn();
 
@@ -64,8 +64,14 @@ public class EVBike implements ElectricVehicle {
     public void playMusic()
     {
         if(isPlayMusic)
-            System.out.println("Music Played");
+            System.out.println("\nMusic Played\n");
         else
             ElectricVehicle.super.playMusic();
+    }
+    public void inspection(){
+        System.out.println("\nEv bike inspection done\n");
+    }
+    public void chargeBattery(){
+        System.out.println("\nEv-Car charge battery done\n");
     }
 }

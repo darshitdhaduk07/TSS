@@ -7,22 +7,19 @@ public interface Vehicle {
 
     public int getId();
     default void horn(){
-        System.out.println("This feature is not supported");
+        System.out.println("\nThis feature is not supported\n");
     }
 
     default void playMusic()
     {
-        System.out.println("This feature is not supported");
+        System.out.println("\nThis feature is not supported\n");
     }
 
-    public static void inspection(Vehicle v)
-    {
-        System.out.println("Inspection done of "+v.getClass().getSimpleName());
-    }
+    public void inspection();
 
     default void chargeBattery()
     {
-        System.out.println("This feature is not supported");
+        System.out.println("\nThis feature is not supported\n");
     }
 
 }

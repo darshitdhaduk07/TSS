@@ -31,11 +31,11 @@ public class Truck implements Vehicle {
     @Override
     public void start() {
         if(isStarted)
-            System.out.println("Truck already Started");
+            System.out.println("\nTruck already Started\n");
         else
         {
             isStarted = true;
-            System.out.println("Truck Started");
+            System.out.println("\nTruck Started\n");
         }
     }
 
@@ -44,17 +44,17 @@ public class Truck implements Vehicle {
         if(isStarted)
         {
             isStarted = false;
-            System.out.println("Truck Stop");
+            System.out.println("\nTruck Stop\n");
         }
         else
-            System.out.println("Truck already Stopped");
+            System.out.println("\nruck already Stopped\n");
     }
 
     @Override
     public void horn()
     {
         if(isHorn)
-            System.out.println("Pip Pip....");
+            System.out.println("\nPip Pip....\n");
         else
             Vehicle.super.horn();
 
@@ -64,9 +64,12 @@ public class Truck implements Vehicle {
     public void playMusic()
     {
         if(isPlayMusic)
-            System.out.println("Music Played");
+            System.out.println("\nMusic Played\n");
         else
             Vehicle.super.playMusic();
+    }
+    public void inspection(){
+        System.out.println("\nTruck inspection done\n");
     }
 
 }
