@@ -43,7 +43,7 @@ public class Car implements Vehicle {
         if(isStarted)
         {
             isStarted = false;
-            System.out.println("\nCar Stop\n");
+            System.out.println("\nCar Stopped\n");
         }
         else
             System.out.println("\nCar already Stopped\n");

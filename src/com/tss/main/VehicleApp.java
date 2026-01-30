@@ -10,6 +10,7 @@ public class VehicleApp {
     public static Vehicle[] vehicle = new Vehicle[10];
     public static Scanner sc = new Scanner(System.in);
 
+    //get vehicle By id
     public static Vehicle getVehicleById() {
         if (numberOfVehicle == 0) {
             return null;
@@ -32,6 +33,7 @@ public class VehicleApp {
 
 
     public static void addVehicle() {
+        //validations
         if (numberOfVehicle > 10) {
             System.out.println("\nYou can't add vehicle");
             return;
@@ -44,14 +46,28 @@ public class VehicleApp {
         System.out.println("4. Electric Vehicle");
 
         int choice = sc.nextInt();
+        //validation
         while (choice < 0 || choice > 4) {
             System.out.print("Enter valid choice: ");
             choice = sc.nextInt();
         }
 
+        //sub choice of 4. Electric Vehicle
+        int c = 0;
+        if(choice == 4)
+        {
+            System.out.println("1. For EV-Bike");
+            System.out.println("2. For EV-Car");
+            c = sc.nextInt();
+            while (c < 0 || c > 2) {
+                System.out.print("Please Enter Valid Choice: ");
+                c = sc.nextInt();
+            }
+        }
         System.out.print("Enter id: ");
         int id = sc.nextInt();
 
+        //if id is already present then generate new
         while (true) {
             int flag = 0;
             for (Vehicle vehicle1 : vehicle) {
@@ -85,17 +101,10 @@ public class VehicleApp {
                 vehicle[numberOfVehicle++] = new Truck(id, isHorn, isPlayMusic);
                 break;
             case 4:
-                System.out.println("1. For EV-Bike");
-                System.out.println("2. For EV-Car");
-                int c = sc.nextInt();
-                while (c < 0 || c > 2) {
-                    System.out.print("Please Enter Valid Choice: ");
-                    c = sc.nextInt();
-                }
                 if (c == 1)
-                    vehicle[numberOfVehicle] = new EVBike(id, isHorn, isPlayMusic);
+                    vehicle[numberOfVehicle++] = new EVBike(id, isHorn, isPlayMusic);
                 else
-                    vehicle[numberOfVehicle] = new EVCar(id, isHorn, isPlayMusic);
+                    vehicle[numberOfVehicle++] = new EVCar(id, isHorn, isPlayMusic);
         }
 
         System.out.println("\nYour Vehicle id is: " + id);
@@ -105,11 +114,11 @@ public class VehicleApp {
     public static void startVehicle() {
         Vehicle vehicle1 = getVehicleById();
 
+        //null reference validations
         if (vehicle1 == null) {
             System.out.println("\nPlease Add a vehicle first\n");
             return;
         }
-
 
         vehicle1.start();
 
@@ -119,50 +128,56 @@ public class VehicleApp {
     {
         Vehicle vehicle1 = getVehicleById();
 
+        //null reference validations
         if (vehicle1 == null) {
             System.out.println("\nPlease Add a vehicle first\n");
             return;
         }
-
 
         vehicle1.stop();
     }
     public static void playHorn(){
         Vehicle vehicle1 = getVehicleById();
 
+        //null reference validations
         if (vehicle1 == null) {
             System.out.println("\nPlease Add a vehicle first\n");
             return;
         }
-
 
         vehicle1.horn();
     }
     public static void playMusic(){
         Vehicle vehicle1 = getVehicleById();
 
+        //null reference validations
         if (vehicle1 == null) {
             System.out.println("\nPlease Add a vehicle first\n");
             return;
         }
+
         vehicle1.playMusic();
     }
-    public static void vehicleinspection(){
+    public static void vehicleInspection(){
         Vehicle vehicle1 = getVehicleById();
 
+        //null reference validations
         if (vehicle1 == null) {
             System.out.println("\nPlease Add a vehicle first\n");
             return;
         }
+
         vehicle1.inspection();
     }
     public static void chargeBattery(){
         Vehicle vehicle1 = getVehicleById();
 
+        //null reference validations
         if(vehicle1 == null){
             System.out.println("\nPlease Add a vehicle first\n");
             return;
         }
+
         vehicle1.chargeBattery();
     }
     public static void main(String[] args) {
@@ -180,7 +195,7 @@ public class VehicleApp {
             System.out.print("Enter Your choice: ");
             int choice = sc.nextInt();
 
-            while (choice < 0 || choice > 7) {
+            while (choice < 0 || choice > 8) {
                 System.out.println("Enter valid Choice: ");
                 choice = sc.nextInt();
             }
@@ -204,7 +219,7 @@ public class VehicleApp {
                     playMusic();
                     break;
                 case 7:
-                    vehicleinspection();
+                    vehicleInspection();
                     break;
                 case 8:
                     return;

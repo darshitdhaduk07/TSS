@@ -44,17 +44,17 @@ public class Truck implements Vehicle {
         if(isStarted)
         {
             isStarted = false;
-            System.out.println("\nTruck Stop\n");
+            System.out.println("\nTruck Stopped\n");
         }
         else
-            System.out.println("\nruck already Stopped\n");
+            System.out.println("\nTruck already Stopped\n");
     }
 
     @Override
     public void horn()
     {
         if(isHorn)
-            System.out.println("\nPip Pip....\n");
+            System.out.println("\nHonk Honk...\n");
         else
             Vehicle.super.horn();
 

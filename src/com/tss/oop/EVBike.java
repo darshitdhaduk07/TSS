@@ -44,7 +44,7 @@ public class EVBike implements ElectricVehicle {
         if(isStarted)
         {
             isStarted = false;
-            System.out.println("\nEv-Bike Stop\n");
+            System.out.println("\nEv-Bike Stopped\n");
         }
         else
             System.out.println("\nEv-Car already Stopped\n");
@@ -72,6 +72,6 @@ public class EVBike implements ElectricVehicle {
         System.out.println("\nEv bike inspection done\n");
     }
     public void chargeBattery(){
-        System.out.println("\nEv-Car charge battery done\n");
+        System.out.println("\nEv-Car charged\n");
     }
 }

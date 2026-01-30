@@ -44,7 +44,7 @@ public class Bike implements Vehicle {
         if(isStarted)
         {
             isStarted = false;
-            System.out.println("\nBike Stop\n");
+            System.out.println("\nBike Stopped\n");
         }
         else
             System.out.println("\nBike already Stopped\n");
