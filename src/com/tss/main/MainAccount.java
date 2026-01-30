@@ -1,4 +1,9 @@
-package com.tss.oop;
+package com.tss.main;
+
+import com.tss.exception.NegativeAmountException;
+import com.tss.oop.Account;
+import com.tss.oop.CurrentAccount;
+import com.tss.oop.SavingAccount;
 
 import java.util.Scanner;
 
@@ -37,7 +42,27 @@ public class MainAccount {
 
         }
     }
+    public static double getAmount()
+    {
+        double amount = sc.nextDouble();
+        while (amount < 0)
+        {
+            amount = sc.nextDouble();
 
+            try
+            {
+                if(amount < 0)
+                    throw new NegativeAmountException("Amount should be Positive");
+                else break;
+            }
+            catch (NegativeAmountException n)
+            {
+                System.out.println(n);
+            }
+            System.out.println("Please Enter valid amount");
+        }
+        return amount;
+    }
     public static void createAccount()
     {
         int choice = sc.nextInt();
@@ -53,7 +78,7 @@ public class MainAccount {
         String name = sc.nextLine();
 
         System.out.print("Enter Balance: ");
-        double balance = sc.nextDouble();
+        double balance = getAmount();
 
         if(choice == 1)
         {
@@ -89,14 +114,9 @@ public class MainAccount {
         //get account by account number
         Account account = getAccountByAccountNumber();
         System.out.print("Enter Amount to Deposit: ");
-        double amount = sc.nextDouble();
+        double amount = getAmount();
 
-        // amount validation
-        while (amount < 0)
-        {
-            System.out.print("Please Enter valid amount: ");
-            amount = sc.nextDouble();
-        }
+
         account.deposit(amount);
     }
     public static void withdraw()
@@ -113,13 +133,10 @@ public class MainAccount {
         Account account = getAccountByAccountNumber();
 
         System.out.print("Enter amount to withdraw: ");
-        double amount = sc.nextDouble();
+        double amount = getAmount();
 
-        while (amount < 0)
-        {
-            System.out.println("Please Enter valid amount: ");
-            amount = sc.nextDouble();
-        }
+
+
         account.withdraw(amount);
     }
     public static void showBalance(){
@@ -155,7 +172,7 @@ public class MainAccount {
             return;
         }
         System.out.println("Enter amount to send");
-        double amount = sc.nextDouble();
+        double amount = getAmount();
 
         if(sender.withdraw(amount))
         {
@@ -187,7 +204,6 @@ public class MainAccount {
                    System.out.println("1. For Saving account");
                    System.out.println("2. For Current account");
                    createAccount();
-                   break;
                case 2:
                    deposit();
                    break;

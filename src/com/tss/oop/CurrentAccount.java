@@ -1,5 +1,7 @@
 package com.tss.oop;
 
+import com.tss.exception.NegativeAmountException;
+
 public class CurrentAccount extends Account{
     public static double minimumBalance;
 
@@ -9,11 +11,7 @@ public class CurrentAccount extends Account{
     }
     public void deposit(double amount)
     {
-        if(amount < 0)
-        {
-            System.out.println("Please Enter valid amount");
-            return;
-        }
+
         super.deposit(amount);
         System.out.println("Amount Deposit Successfully");
 
@@ -21,6 +19,7 @@ public class CurrentAccount extends Account{
 
     public boolean withdraw(double amount)
     {
+
         if(super.showBalance()-amount < minimumBalance)
         {
             System.out.println("You can't withdraw you should contain"+minimumBalance+" in your account");
