@@ -1,10 +1,11 @@
 package com.tss.filehandling;
 
-public class Movie {
+import java.io.Serializable;
 
-    private static int counter = 0;
-    private int id;
+public class Movie implements Serializable {
+
     private String name;
+    private int id;
     private int year;
     private String genre;
 
@@ -24,8 +25,8 @@ public class Movie {
         return genre;
     }
 
-    public void setId() {
-        this.id = ++counter;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setName(String name) {

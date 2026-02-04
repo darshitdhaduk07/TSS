@@ -5,62 +5,58 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+public class MovieManager implements Serializable {
 
+    private List<Movie> movies;
+    static final String filePath = "/Users/darshitdhaduk/Desktop/Movies/Movies";
 
-public class MovieManager {
-    List<Movie>movies;
-    public final int size = 5;
-    static final String filePaht = "C:\\Users\\Darshit.Dhaduk\\Desktop\\FileHandling\\Movie\\Movies.txt";
-
-    public MovieManager() throws IOException, ClassNotFoundException {
+    public MovieManager() {
         movies = new ArrayList<>();
         loadMovies();
     }
 
-    public void addMovie(Movie movie)
-    {
+    public void addMovie(Movie movie) {
         movies.add(movie);
     }
 
-    public List<Movie> getMovies()
-    {
-       return movies;
+    public List<Movie> getMovies() {
+        return movies;
     }
-    public int getSize()
-    {
+
+    public int getSize() {
         return movies.size();
     }
-//    public int getId(Movie movie)
-//    {
-//        return movie.getId();
-//    }
 
-    public void loadMovies() throws IOException, ClassNotFoundException {
-        FileInputStream fis = new FileInputStream(filePaht);
-        ObjectInputStream ois = new ObjectInputStream(fis);
+    public void loadMovies() {
+        File file = new File(filePath);
 
-        movies = Collections.singletonList((Movie) ois.readObject());
+        if (!file.exists() || file.length() == 0) return;
 
-    }
+        try (ObjectInputStream ois =
+                     new ObjectInputStream(new FileInputStream(file))) {
 
-    public void saveMovies() throws IOException {
-        FileOutputStream fos = new FileOutputStream(filePaht,false);
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
+            this.movies = (List<Movie>) ois.readObject();
 
-        for(Movie m : movies)
-        {
-            if(m == null)
-                continue;
-            else {
-                oos.writeObject(m);
-            }
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 
-    public void deleteAllMovies() throws IOException {
-        FileOutputStream fos = new FileOutputStream(filePaht,false);
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
+    public void saveMovies() {
+        try (ObjectOutputStream oos =
+                     new ObjectOutputStream(new FileOutputStream(filePath))) {
 
+            oos.writeObject(movies);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void clearMovies() {
         movies.clear();
+    }
+    public void deleteAllMovies() {
+        movies.clear();
+        saveMovies();
     }
 }

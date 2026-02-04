@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class MovieController {
     public MovieManager manager;
 
-    public MovieController() throws IOException, ClassNotFoundException {
+    public MovieController(){
         manager = new MovieManager();
     }
 
@@ -21,33 +21,14 @@ public class MovieController {
 
     private void displayMenu()
     {
-//        List<Movie> movieList = manager.getMovies();
-//        int i = 1;
-//        for(Movie m : movieList)
-//        {
-//            if (m == null)
-//            {
-//                continue;
-//            }
-//            else{
-//                System.out.println("----- Movie "+i+" -----");
-//                System.out.println("Movie Id: "+m.getId());
-//                System.out.println("Movie Name: "+m.getName());
-//                System.out.println("Movie Year: "+m.getYear());
-//                System.out.println("Movie genre: "+m.getGenre());
-//                i++;
-//            }
-//        }
         System.out.println("1. Display Movies");
         System.out.println("2. Add Movies");
         System.out.println("3. Clear All Movies");
-        System.out.println("4. Exit");
+        System.out.println("4. Delete all moves");
+        System.out.println("5. Save All Movies");
+        System.out.println("6. Exit");
 
     }
 
-    public void setMovieDetails()
-    {
 
-
-    }
 }
