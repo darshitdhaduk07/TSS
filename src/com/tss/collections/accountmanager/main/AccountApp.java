@@ -1,8 +1,7 @@
-package com.tss.collections.main;
+package com.tss.collections.accountmanager.main;
 
-import com.tss.collections.*;
+import com.tss.validate.InputValidator;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AccountApp {

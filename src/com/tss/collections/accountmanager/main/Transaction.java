@@ -1,4 +1,4 @@
-package com.tss.collections;
+package com.tss.collections.accountmanager.main;
 
 public class Transaction {
     private static long idCounter = 1000000000L;

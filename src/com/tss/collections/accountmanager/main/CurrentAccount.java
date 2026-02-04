@@ -1,7 +1,5 @@
-package com.tss.collections;
+package com.tss.collections.accountmanager.main;
 
-
-import java.util.List;
 
 public class CurrentAccount extends Account {
     public static double minimumBalance;
