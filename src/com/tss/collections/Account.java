@@ -36,6 +36,7 @@ public class Account {
     public String getAccountNumber() {
         return accountNumber;
     }
+
     public String getName() {
         return name;
     }
@@ -44,9 +45,12 @@ public class Account {
         return transactions;
     }
 
+    //override
     public void deposit(double amount) {
         this.setBalance(this.getBalance() + amount);
     }
+
+//    override
     public boolean withdraw(double amount,TransactionType transactionType) {
         this.setBalance(this.getBalance() - amount);
         return true;

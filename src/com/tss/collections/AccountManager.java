@@ -42,7 +42,7 @@ public class AccountManager {
         int choice = InputValidator.readInt("Enter your choice: ");
 
         while (choice < 1 || choice > 2) {
-            choice = InputValidator.readInt("Enter your choice: ");
+            choice = InputValidator.readInt("Enter Valid choice: ");
         }
 
         String accountNumber = generateAccountNumber(choice);
@@ -173,6 +173,7 @@ public class AccountManager {
 
             transaction.setTransactionSuccess(true);
             sender.addTransaction(transaction);
+            receiver.addTransaction(transaction);
 
 
             return;
@@ -190,17 +191,17 @@ public class AccountManager {
         Account account = getAccountFromUser();
 
         System.out.println(
-                "+------------+------------------+------------------+------------------+------------+------------------+----------+"
+                "+------------+------------------+------------------+------------+------------------+----------+"
         );
 
         System.out.printf(
-                "| %-10s | %-16s | %-16s | %-16s | %-10s | %-16s | %-8s |%n",
-                "Txn ID", "Account No", "Sender Acc", "Receiver Acc",
+                "| %-10s | %-16s | %-16s | %-10s | %-16s | %-8s |%n",
+                "Txn ID", "Sender Acc", "Receiver Acc",
                 "Amount", "Type", "Status"
         );
 
         System.out.println(
-                "+------------+------------------+------------------+------------------+------------+------------------+----------+"
+                "+------------+------------------+------------------+------------+------------------+----------+"
         );
 
 
@@ -213,9 +214,8 @@ public class AccountManager {
                         : "FAILED";
 
                 System.out.printf(
-                        "| %-10d | %-16s | %-16s | %-16s | ₹%-9.2f | %-16s | %-8s |%n",
+                        "| %-10d | %-16s | %-16s | ₹%-9.2f | %-16s | %-8s |%n",
                         transaction.getId(),
-                        account.getAccountNumber(),                  // 👈 ACCOUNT NUMBER
                         transaction.getSenderAccountNumber(),
                         transaction.getReceiverAccountNumber(),
                         transaction.getTransactionAmount(),
@@ -226,7 +226,7 @@ public class AccountManager {
 
 
         System.out.println(
-                "+------------+------------------+------------------+------------------+------------+------------------+----------+"
+                "+------------+------------------+------------------+------------+------------------+----------+"
         );
 
 
