@@ -1,4 +1,4 @@
-package com.tss.collections;
+package com.tss.collections.accountmanager.main;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,6 @@
-package com.tss.collections;
+package com.tss.collections.accountmanager.main;
+
+import com.tss.validate.InputValidator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +22,7 @@ public class AccountManager {
 
     public static Account getAccountFromUser() {
 
-        String accountNumber = InputValidator.readString("Enter account Number: ","\\d+");
+        String accountNumber = InputValidator.readAccountNumber("Enter account Number: ");
 
         while (true) {
             for (Account account : accountList) {
@@ -30,7 +32,7 @@ public class AccountManager {
                 }
             }
             System.out.println("\nAccount not Found\n");
-            accountNumber = InputValidator.readString("Enter account Number: ","\\d+");
+            accountNumber = InputValidator.readAccountNumber("Enter account Number: ");
         }
     }
 
@@ -47,7 +49,7 @@ public class AccountManager {
 
         String accountNumber = generateAccountNumber(choice);
 
-        String name = InputValidator.readString("Enter account holder name: ","[A-Za-z ]+");
+        String name = InputValidator.readString("Enter account holder name: ");
 
         double balance = InputValidator.readDouble("Enter account balance: ");
 
@@ -112,7 +114,7 @@ public class AccountManager {
     }
 
     public Account searchAccount() {
-        String accountNumber = InputValidator.readString("Enter account Number: ","\\d+");
+        String accountNumber = InputValidator.readAccountNumber("Enter account Number: ");
 
         for (Account account : accountList) {
             if (account.getAccountNumber().equals(accountNumber)) {

@@ -1,8 +1,4 @@
-package com.tss.collections;
-
-import com.tss.collections.Account;
-
-import java.util.List;
+package com.tss.collections.accountmanager.main;
 
 public class SavingAccount extends Account {
     private static int offerRate;
