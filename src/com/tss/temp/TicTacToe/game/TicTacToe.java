@@ -4,6 +4,7 @@ import com.tss.temp.TicTacToe.board.Board;
 import com.tss.temp.TicTacToe.board.Symbols;
 import com.tss.temp.TicTacToe.player.Player;
 import com.tss.temp.TicTacToe.rules.Rules;
+import com.tss.temp.builder.model.User;
 import com.tss.validate.InputValidator;
 
 import java.awt.*;
@@ -14,56 +15,95 @@ import java.util.List;
 
 public class TicTacToe {
 
-    private Board board;
-    private Deque<Player> players;
-    private Rules rules;
+    private final Board board;
+    private final Deque<Player> players;
+    private final Rules rules;
 
-    private TicTacToe(TicTacToeBuilder ticTacToeBuilder) {
+    private GameState gameState = GameState.IN_PROGRESS;
+    private Player winner;
+
+    private TicTacToe(Builder ticTacToeBuilder) {
         this.board = ticTacToeBuilder.board;
         this.players = ticTacToeBuilder.players;
         this.rules = ticTacToeBuilder.rules;
     }
+
     public Board getBoard() {
         return board;
     }
 
-    public Deque<Player> getPlayers() {
-        return players;
+    public Player getCurrentPlayer() {
+        return players.peekFirst();
     }
-    public Rules getRules() {
-        return rules;
+
+    public Player getWinner() {
+        return winner;
     }
-    public static class TicTacToeBuilder {
+
+    public GameState getGameState() {
+        return gameState;
+    }
+
+    public GameState makeMove(int row, int col) {
+
+        Player current = players.peekFirst();
+
+        if (!rules.isValidMove(board, row, col)) {
+            throw new IllegalArgumentException("Invalid Move");
+        }
+
+        board.placeSymbol(current.getSymbol(), row, col);
+
+        gameState = rules.checkState(board, row, col);
+
+        if (gameState == GameState.WIN) {
+            winner = current;
+            return gameState;
+        }
+
+        if (board.isFull()) {
+            gameState = GameState.DRAW;
+            return gameState;
+        }
+
+        players.offerLast(players.pollFirst());
+        return GameState.IN_PROGRESS;
+    }
+
+    public static class Builder {
         private int boardSize;
         Board board;
         Deque<Player> players;
         Rules rules;
 
-        public TicTacToeBuilder(int boardSize) {
+        public Builder(int boardSize) {
+            if (boardSize < 3)
+                throw new IllegalArgumentException(
+                        "Board size must be at least 3"
+                );
+
             this.boardSize = boardSize;
-            this.players = new ArrayDeque<>();
-            this.rules = null;
+
         }
 
-        public TicTacToeBuilder addPlayer(Symbols symbols) {
-            String name = InputValidator.readString("Enter Player Name: ");
-
-            Player player = new Player(name,symbols);
+        public Builder addPlayer(Player player) {
             players.add(player);
             return this;
         }
-        public TicTacToeBuilder addRules(Rules rules) {
+
+        public Builder setRules(Rules rules) {
             this.rules = rules;
             return this;
         }
-        public void setSymbol(Symbols symbol) {
 
-        }
-        public TicTacToeBuilder createBoard() {
+        public Builder createBoard() {
             board = new Board(boardSize);
             return this;
         }
+
         public TicTacToe build() {
+            if (board == null || rules == null || players.size() < 2)
+                throw new IllegalStateException("Invalid Game Setup! Please Restart");
             return new TicTacToe(this);
         }
 

@@ -7,7 +7,7 @@ import com.tss.temp.TicTacToe.game.GameState;
 public class BasicRules implements Rules {
     @Override
     public boolean isValidMove(Board board, int row, int col) {
-        return board.getSymbol(row, col) == Symbols.EMPTY;
+        return board.isValidPosition(row,col) && board.getSymbol(row, col) == Symbols.EMPTY;
     }
 
     @Override
@@ -60,7 +60,7 @@ public class BasicRules implements Rules {
             if (win) return GameState.WIN;
         }
 
-        if (board.getFilledCells() == board.getSize() * board.getSize()) {
+        if (board.isFull()) {
             return GameState.DRAW;
         }
 

@@ -11,7 +11,6 @@ public class Player {
     private static int counter = 0;
     private Symbols symbol;
     private int score;
-    private GameState gameState;
 
     public Player(String name, Symbols symbol) {
         this.name = name;
@@ -19,13 +18,7 @@ public class Player {
         this.symbol = symbol;
     }
 
-    public GameState getGameState() {
-        return gameState;
-    }
 
-    public void setGameState(GameState gameState) {
-        this.gameState = gameState;
-    }
 
     public String getName() {
         return name;
@@ -45,6 +38,9 @@ public class Player {
     }
     public int getScore() {
         return score;
+    }
+    public void increaseScore() {
+        score++;
     }
     private void getDetails()
     {

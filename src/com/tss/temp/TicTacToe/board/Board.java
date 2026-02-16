@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Board {
     private List<List<Symbols>> board;
-    private static int filledCells = 0;
+    private int filledCells = 0;
     private int size;
     public Board(int size) {
         this.size = size;
@@ -19,22 +19,26 @@ public class Board {
             board.add(row);
         }
     }
+    public boolean isValidPosition(int row, int col) {
+        return row >= 0 && row < size &&
+                col >= 0 && col < size;
+    }
     public int getSize() {
         return size;
-    }
-    public int getFilledCells() {
-        return filledCells;
     }
     public boolean isCellEmpty(int row, int col) {
         return board.get(row).get(col) == Symbols.EMPTY;
     }
-    public void setSymbols(Symbols symbol, int row, int col) {
-        filledCells++;
+    public void placeSymbol(Symbols symbol, int row, int col) {
         board.get(row).set(col, symbol);
+        filledCells++;
     }
-
     public Symbols getSymbol(int row, int col) {
         return board.get(row).get(col);
+    }
+
+    public boolean isFull() {
+        return filledCells == size * size;
     }
     public void showBoard() {
 

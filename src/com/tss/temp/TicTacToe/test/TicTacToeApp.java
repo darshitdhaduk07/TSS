@@ -14,8 +14,7 @@ import java.util.Scanner;
 public class TicTacToeApp {
     public static void main(String[] args) {
 
-        TicTacToeFasad fasad = new TicTacToeFasad();
-        fasad.play();
+        new TicTacToeFacade().play();
 
     }
 }
