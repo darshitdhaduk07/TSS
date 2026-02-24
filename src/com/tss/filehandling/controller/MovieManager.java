@@ -1,8 +1,9 @@
-package com.tss.filehandling;
+package com.tss.filehandling.controller;
+
+import com.tss.filehandling.module.Movie;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class MovieManager implements Serializable {

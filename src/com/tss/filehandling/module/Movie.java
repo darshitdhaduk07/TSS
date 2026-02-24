@@ -1,4 +1,4 @@
-package com.tss.filehandling;
+package com.tss.filehandling.module;
 
 import java.io.Serializable;
 
