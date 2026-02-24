@@ -1,4 +1,4 @@
-package com.tss.filehandling.controller;
+package com.tss.filehandling.movieapp.controller;
 
 public class MovieController {
     public MovieManager manager;

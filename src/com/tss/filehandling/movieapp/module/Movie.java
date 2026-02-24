@@ -1,4 +1,4 @@
-package com.tss.filehandling.module;
+package com.tss.filehandling.movieapp.module;
 
 import java.io.Serializable;
 

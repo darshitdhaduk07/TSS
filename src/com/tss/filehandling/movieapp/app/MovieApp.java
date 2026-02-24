@@ -1,8 +1,8 @@
-package com.tss.filehandling.app;
+package com.tss.filehandling.movieapp.app;
 
 import com.tss.exception.CapacityFullException;
-import com.tss.filehandling.controller.MovieController;
-import com.tss.filehandling.module.Movie;
+import com.tss.filehandling.movieapp.controller.MovieController;
+import com.tss.filehandling.movieapp.module.Movie;
 
 import java.util.List;
 import java.util.Scanner;

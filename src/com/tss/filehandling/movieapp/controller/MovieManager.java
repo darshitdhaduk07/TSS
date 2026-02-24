@@ -1,6 +1,6 @@
-package com.tss.filehandling.controller;
+package com.tss.filehandling.movieapp.controller;
 
-import com.tss.filehandling.module.Movie;
+import com.tss.filehandling.movieapp.module.Movie;
 
 import java.io.*;
 import java.util.ArrayList;
