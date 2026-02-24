@@ -1,4 +1,4 @@
-package com.tss.collections.librarymanagement;
+package com.tss.collections.librarymanagement.module;
 
 
 public class Book{
@@ -8,7 +8,7 @@ public class Book{
     private String author;
     private String category;
 
-    Book(String title, String author, String category){
+    public Book(String title, String author, String category){
         this.isbn = ++counter;
         this.title = title;
         this.author = author;

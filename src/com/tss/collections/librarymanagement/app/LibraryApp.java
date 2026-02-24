@@ -1,8 +1,7 @@
-package com.tss.collections.librarymanagement;
+package com.tss.collections.librarymanagement.app;
 
+import com.tss.collections.librarymanagement.service.LibraryManagement;
 import com.tss.validate.InputValidator;
-
-import java.util.Scanner;
 
 public class LibraryApp {
     public static void main(String[] args) {

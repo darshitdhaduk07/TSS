@@ -1,4 +1,4 @@
-package com.tss.collections.librarymanagement;
+package com.tss.collections.librarymanagement.module;
 
 public class BookCopy {
     private int id;
