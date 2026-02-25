@@ -1,4 +1,4 @@
-package com.tss.collections.librarymanagement;
+package com.tss.collections.librarymanagement.module;
 
 public class Member {
     private int id;
@@ -6,7 +6,7 @@ public class Member {
     private String name;
     private String email;
 
-    Member(String name, String email) {
+    public Member(String name, String email) {
         this.id = ++counter;
         this.name = name;
         this.email = email;

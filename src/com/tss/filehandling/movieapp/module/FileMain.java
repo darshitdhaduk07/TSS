@@ -1,8 +1,7 @@
-package com.tss.filehandling;
+package com.tss.filehandling.movieapp.module;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class FileMain {

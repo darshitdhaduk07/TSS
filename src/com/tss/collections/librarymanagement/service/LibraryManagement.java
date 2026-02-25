@@ -1,5 +1,8 @@
-package com.tss.collections.librarymanagement;
+package com.tss.collections.librarymanagement.service;
 
+import com.tss.collections.librarymanagement.module.Book;
+import com.tss.collections.librarymanagement.module.BookCopy;
+import com.tss.collections.librarymanagement.module.Member;
 import com.tss.validate.InputValidator;
 
 import java.util.*;

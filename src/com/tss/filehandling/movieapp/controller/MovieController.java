@@ -1,11 +1,4 @@
-package com.tss.filehandling;
-
-import com.tss.exception.CapacityFullException;
-
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
-import java.io.IOException;
-import java.util.List;
-import java.util.Scanner;
+package com.tss.filehandling.movieapp.controller;
 
 public class MovieController {
     public MovieManager manager;
